@@ -1,0 +1,22 @@
+<div class="tetsComponent">
+  <h1>Hello En vagyok a tets component Hello {{namee}}</h1>
+  <p>{{greetNight()}}</p>
+
+  <h2 [style.color]="hasError ? 'red' : 'blue'">Style binding</h2>
+
+  <button (click)="clickMethod()">Greet</button>
+  <br>
+  <input type="text" #myinput>
+  <button (click)="logValue(myinput.value)">Log value</button>
+  {{namee}}
+
+  <h1>Colors for</h1>
+  <div *ngFor="let color of colors">
+  <p >{{color}}</p>
+  </div>
+  <h1>Varriable from parent(props): {{name}}</h1>
+  <button (click)="emitEvent()">Send event(emit)</button>
+
+  <h1>Pipe (elso 3 karakter lehagyasa)</h1>
+  {{namee | slice:3}}
+</div>
