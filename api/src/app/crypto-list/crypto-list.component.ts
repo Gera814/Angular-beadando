@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import {EmployeeService} from '../employee.service';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-
+import {DataService} from '../services/data.service';
+import {log} from 'util';
 
 @Component({
   selector: 'app-crypto-list',
@@ -19,13 +19,13 @@ import {Router} from '@angular/router';
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let crypto of cryptos.coins;let i = index">
+        <tr *ngFor="let crypto of cryptos;let i = index">
           <td>{{crypto.rank}}</td>
           <td>{{crypto.name}}</td>
-          <td>{{crypto.price}}</td>
-          <td>{{crypto.delta_24h}}</td>
-          <td>
-            <button (click)="goToBuy(crypto.name)">BUY</button>
+          <td>$ {{crypto.price_usd}}</td>
+          <td>{{crypto.percent_change_24h}}</td>
+          <td id="buyTD">
+            <input type="text"><button (click)="goToBuy(crypto.id)">BUY</button>
           </td>
         </tr>
         </tbody>
@@ -36,20 +36,32 @@ import {Router} from '@angular/router';
 })
 export class CryptoListComponent implements OnInit {
 
-  public cryptos = [];
+  public cryptos:any = [];
 
   //instance hozzaadasa
   // tslint:disable-next-line:variable-name
-  constructor(private _employeeService: EmployeeService, private router: Router) {
+  constructor(private service: DataService, private router: Router) {
   }
 
   ngOnInit(): void {
-    this._employeeService.getCryptoInfo()
-      .subscribe(data => this.cryptos = data);
+
+    this.service.getCryptos()
+      .subscribe(
+        (data) => {
+          this.cryptos = data;
+        },
+        (err) => console.error(err),
+        () => this.cryptos = this.cryptos.data
+      );
+
   }
 
-  goToBuy(name): void {
-    this.router.navigate(['/buy', name]);
+
+
+
+  goToBuy(symbol): void {
+    this.router.navigate(['/buy', symbol]);
   }
 
 }
+

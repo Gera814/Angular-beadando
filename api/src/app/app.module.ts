@@ -10,6 +10,7 @@ import {EmployeeService} from './employee.service';
 import {HttpClientModule} from '@angular/common/http';
 import { CryptoListComponent } from './crypto-list/crypto-list.component';
 import { BuyComponent } from './buy/buy.component';
+import { PortfolioComponent } from './portfolio/portfolio.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { BuyComponent } from './buy/buy.component';
     EmployeeDetailsComponent,
     CryptoListComponent,
     routingComponents,
-    BuyComponent
+    BuyComponent,
+    PortfolioComponent
   ],
   imports: [
     BrowserModule,
