@@ -14,8 +14,7 @@ import {log} from 'util';
           <td>NAME</td>
           <td>PRICE</td>
           <td>LAST 24H</td>
-          <td>City</td>
-          <td></td>
+          <td>Buy</td>
         </tr>
         </thead>
         <tbody>
@@ -24,8 +23,9 @@ import {log} from 'util';
           <td>{{crypto.name}}</td>
           <td>$ {{crypto.price_usd}}</td>
           <td>{{crypto.percent_change_24h}}</td>
-          <td id="buyTD">
-            <input type="text"><button (click)="goToBuy(crypto.id)">BUY</button>
+
+          <td>
+            <button (click)="goToBuy(crypto.id)">BUY {{quantity}}</button>
           </td>
         </tr>
         </tbody>
@@ -35,7 +35,7 @@ import {log} from 'util';
   styleUrls: ['./crypto-list.component.css']
 })
 export class CryptoListComponent implements OnInit {
-
+  quantity;
   public cryptos:any = [];
 
   //instance hozzaadasa

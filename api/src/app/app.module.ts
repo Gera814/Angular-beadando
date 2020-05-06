@@ -11,6 +11,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { CryptoListComponent } from './crypto-list/crypto-list.component';
 import { BuyComponent } from './buy/buy.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,11 +24,12 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
     BuyComponent,
     PortfolioComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule
+    ],
   providers: [EmployeeService],
   bootstrap: [AppComponent]
 })

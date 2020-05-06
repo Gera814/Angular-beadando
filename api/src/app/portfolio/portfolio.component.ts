@@ -16,9 +16,10 @@ import {log} from 'util';
           <td>QUANTITY</td>
           <td>BUYED PRICE</td>
           <td>CURRENT PRICE</td>
+          <td>BUYED $</td>
+          <td>CURRENT $</td>
           <td>PROFIT</td>
-          <td>City</td>
-          <td></td>
+          <td>Delete</td>
         </tr>
         </thead>
         <tbody>
@@ -28,9 +29,11 @@ import {log} from 'util';
           <td>{{buyedCrypto.quantity}}</td>
           <td>$ {{buyedCrypto.price_usd}}</td>
           <td>$ {{getActualCryptoPrice(buyedCrypto.id)}}</td>
+          <td>$ {{buyedCrypto.quantity*buyedCrypto.price_usd}}</td>
+          <td>$ {{buyedCrypto.quantity * getActualCryptoPrice(buyedCrypto.id)}}</td>
           <td>$ {{(getActualCryptoPrice(buyedCrypto.id)-buyedCrypto.price_usd)*buyedCrypto.quantity}}</td>
           <td>
-            <button (click)="deleteBuy()" >DELETE</button>
+            <button (click)="deleteBuy(buyedCrypto.id)" >DELETE</button>
           </td>
         </tr>
         </tbody>
@@ -63,8 +66,14 @@ export class PortfolioComponent implements OnInit {
     return(searchedPrice.price_usd);
   }
 
-  deleteBuy(){
-
+  deleteBuy(id){
+    console.log(id);
+    console.log('elotte' + this.buyedCryptos);
+    const deleteIndex = this.buyedCryptos.findIndex(x => x.id === id);
+    console.log(deleteIndex);
+    this.buyedCryptos.splice(deleteIndex,1);
+    localStorage.removeItem('buyed');
+    localStorage.setItem('buyed', JSON.stringify(this.buyedCryptos));
   }
 
 }

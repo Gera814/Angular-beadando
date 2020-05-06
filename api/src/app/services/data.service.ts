@@ -34,7 +34,6 @@ export class DataService {
       this.buyedCryptos = [];
     }
     console.log(this.buyedCryptos);
-    data.quantity = 200;
     this.buyedCryptos.push(data);
     console.log(this.buyedCryptos);
     localStorage.setItem('buyed', JSON.stringify(this.buyedCryptos));
