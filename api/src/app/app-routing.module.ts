@@ -4,18 +4,19 @@ import { CryptoListComponent } from './crypto-list/crypto-list.component';
 import {LoginComponent} from './login/login.component';
 import {BuyComponent} from './buy/buy.component';
 import {PortfolioComponent} from './portfolio/portfolio.component';
+import {AuthGuard} from './auth.guard';
 
 
 
 const routes: Routes = [
-  {path: 'list', component: CryptoListComponent},
+  {path: 'list', canActivate: [AuthGuard], component: CryptoListComponent},
   {path: 'login', component: LoginComponent},
   {path: 'buy/:id', component: BuyComponent},
-  {path: 'portfolio', component: PortfolioComponent}
+  {path: 'portfolio', canActivate: [AuthGuard], component: PortfolioComponent}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {enableTracing: true})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

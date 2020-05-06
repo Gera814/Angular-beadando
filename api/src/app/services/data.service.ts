@@ -9,7 +9,6 @@ import {Coin} from '../models/coin';
   providedIn: 'root'
 })
 export class DataService {
-  private url2: string ="https://coinlib.io/api/v1/coin?key=33c958006668416a&pref=USD&symbol=BTC,ETH,XMR,USDT,REP,BTG,ZEC,ETC,BSV,LTC";
   private url: string ="https://api.coinlore.net/api/tickers/?start=0&limit=20";
   public storageCryptoData = [];
   public buyedCryptos = [];
