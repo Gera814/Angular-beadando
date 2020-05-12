@@ -39,30 +39,7 @@ import {faArrowRight} from '@fortawesome/free-solid-svg-icons';
         </tr>
         </tbody>
       </table>
-
-
-
-
-
-      <table class="content-table">
-        <thead>
-
-        </thead>
-        <tbody>
-        <tr *ngFor="let crypto of cryptos;let i = index">
-          <td id="mid">{{crypto.rank}}</td>
-          <td class="important">{{crypto.name}}</td>
-          <td>{{crypto.symbol}}</td>
-          <td class="important">$ {{crypto.price_usd}}</td>
-          <td [style.color]="isColor(crypto.percent_change_1h) ? 'green' : 'red'">{{crypto.percent_change_1h}} %</td>
-          <td [style.color]="isColor(crypto.percent_change_24h) ? 'green' : 'red'"><fa-icon *ngIf="isColor(crypto.percent_change_24h)" class="faCaretUp" [icon]="faCaretUp"></fa-icon><fa-icon *ngIf="!isColor(crypto.percent_change_24h)" class="faCaretDown" [icon]="faCaretDown"></fa-icon>{{crypto.percent_change_24h}} %</td>
-
-          <td>
-            <button (click)="goToBuy(crypto.id)">BUY {{quantity}}</button>
-          </td>
-        </tr>
-        </tbody>
-      </table>
+      
     </div>
   `,
   styleUrls: ['./portfolio.component.css']
