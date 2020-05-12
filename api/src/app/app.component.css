@@ -1,1 +1,93 @@
 
+body{
+  background: #1C1D2D;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  font-family: "Roboto";
+}
+
+.appComponent{
+  background: #1C1D2D;
+
+}
+
+.wrapper{
+  display: flex;
+  position: relative;
+}
+
+.wrapper .sidebar{
+  position: fixed;
+  width: 100px;
+  height: 100%;
+  background: #262A3D;
+}
+
+.logoHolder{
+  width: 100px;
+  height: 90px;
+  background: #6C63FF;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.logoHolder .logo {
+  width: 47px;
+  height: 47px;
+}
+.leftSideBar{
+  height: 90vh;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+}
+.leftSideBar li{
+  width: 100%;
+  height: 90px;
+  padding-top: 30px;
+  display: flex;
+  justify-content: space-around;
+  flex-flow: column;
+  align-items: center;
+}
+.leftSideBar li:hover > a { color: #FFFFFF }
+.leftSideBar li:hover > fa-icon {color: #FFFFFF;}
+.leftSideBar li:hover{
+  cursor: pointer;
+}
+.leftSideBar li a {
+  color: #F3F3F380;
+  font-size: 12px;
+}
+.iconHolder{
+  width: 100%;
+}
+fa-icon:hover{
+  color: #FFFFFF;
+}
+.faTacho{
+  color: #F3F3F380;
+  font-size: 25px;
+}
+.faCoins{
+  color: #F3F3F380;
+
+  font-size: 25px;
+}
+.faSignOut{
+  color: #F3F3F380;
+
+  font-size: 25px;
+}
+.exit{
+  background: #6C63FF;
+}

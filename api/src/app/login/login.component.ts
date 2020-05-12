@@ -23,7 +23,6 @@ import {Router} from '@angular/router';
           <h1>Crypto Trader website</h1>
           <h2>Login to Your Account!</h2>
           <button (click)="goLogin()">Login</button>
-
         </div>
       </div>
     </div>
@@ -37,7 +36,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
   goLogin(){
-    sessionStorage.setItem('loggedIn', 'true');
+    sessionStorage.setItem('login', 'true');
     this.router.navigate(['list']);
   }
 }

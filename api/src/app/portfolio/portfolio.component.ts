@@ -1,39 +1,64 @@
 import { Component, OnInit } from '@angular/core';
 import {DataService} from '../services/data.service';
 import {Router} from '@angular/router';
-import {Coin} from '../models/coin';
-import {log} from 'util';
+import {faArrowRight} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-portfolio',
   template: `
-    <div class="">
-      <table class="table table-striped">
+    <div class="container">
+      <h1 class="title">Portfolio</h1>
+      <p class="smallTitle">Here is your Portfolio. You can see here your Crypto Currencies</p>
+      <table class="content-table">
         <thead>
         <tr>
-          <td>TRADE</td>
+          <td id="mid">TRADE</td>
           <td>NAME</td>
-          <td>QUANTITY</td>
+          <td>AMOUNT</td>
+          <td>BUYED EXCHANGE RATE</td>
+          <td>CURRENT EXCHANGE RATE</td>
           <td>BUYED PRICE</td>
           <td>CURRENT PRICE</td>
-          <td>BUYED $</td>
-          <td>CURRENT $</td>
           <td>PROFIT</td>
           <td>Delete</td>
         </tr>
         </thead>
         <tbody>
         <tr *ngFor="let buyedCrypto of buyedCryptos;let i = index">
-          <td>{{i+1}}.</td>
-          <td>{{buyedCrypto.name}}</td>
+          <td id="mid">{{i+1}}.</td>
+          <td class="important">{{buyedCrypto.name}}</td>
           <td>{{buyedCrypto.quantity}}</td>
-          <td>$ {{buyedCrypto.price_usd}}</td>
+          <td >$ {{buyedCrypto.price_usd}}</td>
           <td>$ {{getActualCryptoPrice(buyedCrypto.id)}}</td>
-          <td>$ {{buyedCrypto.quantity*buyedCrypto.price_usd}}</td>
-          <td>$ {{buyedCrypto.quantity * getActualCryptoPrice(buyedCrypto.id)}}</td>
-          <td>$ {{(getActualCryptoPrice(buyedCrypto.id)-buyedCrypto.price_usd)*buyedCrypto.quantity}}</td>
+          <td class="important">$ {{buyedCrypto.quantity*buyedCrypto.price_usd}}</td>
+          <td class="important">$ {{buyedCrypto.quantity * getActualCryptoPrice(buyedCrypto.id)}}</td>
+          <td [style.color]="isColor((getActualCryptoPrice(buyedCrypto.id)-buyedCrypto.price_usd)*buyedCrypto.quantity) ? 'green' : 'red'">$ {{(getActualCryptoPrice(buyedCrypto.id)-buyedCrypto.price_usd)*buyedCrypto.quantity}}</td>
           <td>
             <button (click)="deleteBuy(buyedCrypto.id)" >DELETE</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
+
+
+
+
+      <table class="content-table">
+        <thead>
+
+        </thead>
+        <tbody>
+        <tr *ngFor="let crypto of cryptos;let i = index">
+          <td id="mid">{{crypto.rank}}</td>
+          <td class="important">{{crypto.name}}</td>
+          <td>{{crypto.symbol}}</td>
+          <td class="important">$ {{crypto.price_usd}}</td>
+          <td [style.color]="isColor(crypto.percent_change_1h) ? 'green' : 'red'">{{crypto.percent_change_1h}} %</td>
+          <td [style.color]="isColor(crypto.percent_change_24h) ? 'green' : 'red'"><fa-icon *ngIf="isColor(crypto.percent_change_24h)" class="faCaretUp" [icon]="faCaretUp"></fa-icon><fa-icon *ngIf="!isColor(crypto.percent_change_24h)" class="faCaretDown" [icon]="faCaretDown"></fa-icon>{{crypto.percent_change_24h}} %</td>
+
+          <td>
+            <button (click)="goToBuy(crypto.id)">BUY {{quantity}}</button>
           </td>
         </tr>
         </tbody>
@@ -46,7 +71,7 @@ export class PortfolioComponent implements OnInit {
   public buyedCryptos = [];
   constructor(private service: DataService, private router: Router) { }
   public cryptosList:any;
-
+  faArrowRight = faArrowRight;
 
   ngOnInit(): void {
     this.service.getCryptos()
@@ -74,6 +99,12 @@ export class PortfolioComponent implements OnInit {
     this.buyedCryptos.splice(deleteIndex,1);
     localStorage.removeItem('buyed');
     localStorage.setItem('buyed', JSON.stringify(this.buyedCryptos));
+  }
+  isColor(value) {
+    if (value > 0) {
+      return true;
+    }
+    return false;
   }
 
 }

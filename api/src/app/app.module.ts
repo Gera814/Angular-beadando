@@ -12,6 +12,7 @@ import { CryptoListComponent } from './crypto-list/crypto-list.component';
 import { BuyComponent } from './buy/buy.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import {FormsModule} from '@angular/forms';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome'
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {FormsModule} from '@angular/forms';
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
-        FormsModule
+        FormsModule,
+        FontAwesomeModule
     ],
   providers: [EmployeeService],
   bootstrap: [AppComponent]

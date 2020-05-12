@@ -1,0 +1,246 @@
+.container{
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.title{
+  font-weight: bold;
+  font-size: 40px;
+  color:  #F3F3F3;
+  margin-bottom: -10px;
+}
+.navigation{
+  font-size: 18px;
+  color: #F3F3F3;
+}
+.navigation a{
+  color:  #F3F3F380;
+}
+.arrow{
+  font-size: 16px;
+  color: #F3F3F380;
+}
+.buyBtn{
+  width: 250px;
+  height: 56px;
+  background: #6C63FF;
+  color: #F3F3F3;
+  border-radius: 50px;
+  padding: 20px 50px;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 30px;
+  margin-bottom: 100px;
+}
+
+.cardContainer{
+  width: 100%;
+  display: flex;
+}
+.leftHolder{
+  width:22%;
+  min-width: 263px;
+  height: 540px;
+  background: #2D2E40;
+  border-radius: 12px;
+  padding: 33px;
+}
+.aboutTitle{
+  font-size: 32px;
+  font-weight: medium;
+  color: #F3F3F3;
+  margin-top: 0;
+  margin-bottom: 40px;
+}
+.aboutText{
+  font-size: 14px;
+  font-weight: lighter;
+  color: #8D8F98;
+}
+
+.last24h{
+  width: 350px;
+  height: 230px;
+  padding: 80px 0;
+  background: #2D2E40;
+  border-radius: 12px;
+  border: none;
+  display: flex;
+  grid-area: last24h;
+
+}
+.last1h{
+  width: 350px;
+  height: 230px;
+  padding: 80px 0;
+  background: #2D2E40;
+  border-radius: 12px;
+  border: none;
+  display: flex;
+  grid-area: last1h;
+
+}
+.symbol{
+  width: 350px;
+  height: 230px;
+  padding: 80px 0;
+  background: #2D2E40;
+  border-radius: 12px;
+  border: none;
+  display: flex;
+  grid-area: symbol;
+  align-self: flex-end;
+
+
+}
+.rank{
+  width: 350px;
+  height: 230px;
+  padding: 80px 0;
+  background: #2D2E40;
+  border-radius: 12px;
+  border: none;
+  display: flex;
+  grid-area: rank;
+  align-self: flex-end;
+
+}
+.rightHolder{
+  padding-left: 70px;
+  width: 78%;
+  position: relative;
+  display: grid;
+  justify-items: center;
+  grid-template-areas:
+    "last24h last1h"
+    "symbol rank"
+
+
+
+}
+.cardLeftSide{
+  width: 40%;
+  height: auto;
+  display: flex;
+  justify-content: space-around;
+  flex-flow: column;
+  align-self: center;
+  text-align: right;
+  padding-right: 30px;
+}
+.cardLeftSide fa-icon{
+  font-size: 40px;
+  color: #F3F3F3;
+
+}
+.cardRightSide{
+  height: 120px;
+  width: 60%;
+  display: flex;
+  justify-content: space-around;
+  flex-flow: column;
+  align-self: center;
+  padding-left: 30px;
+}
+.cardRightSide h3{
+  margin-bottom: 0;
+  color: #F3F3F3;
+  font-weight: medium;
+  font-size: 40px;
+
+}
+.cardRightSide p{
+  font-size: 16px;
+  color:#8D8F98;
+
+}
+
+
+/*BUY POPUP*/
+
+.buyPopup{
+  width: 700px;
+  height: 550px;
+  background: #353F5C;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 53%;
+  border-radius: 12px;
+  padding: 50px;
+  z-index: 500;
+}
+.buyPopup .exit{
+  position: absolute;
+  left: 91%;
+  top: 7%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+.buyPopup .exit fa-icon{
+  color: #F3F3F3;
+  font-size: 25px;
+}
+
+.popupTitle h2{
+  color: #F3F3F3;
+  margin: 0px;
+  font-size: 45px;
+}
+.popupData{
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+.popupData input{
+  margin-top: 100px;
+  width: 310px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #F3F3F3;
+  font-size: 35px;
+  text-align: center;
+}
+.popupData button{
+  margin-top: 40px;
+  width: 140px;
+  height: 56px;
+  padding: 18px 24px 18px 24px;
+  background: #6C63FF;
+  color: #F3F3F3;
+  font-size: 16px;
+  border: none;
+  border-radius: 50px;
+
+}
+.popupData p{
+  font-size: 22px;
+  margin-top: 50px;
+  color: #1CF8A5;
+}
+.topper{
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #000;
+  opacity: 0.7;
+  position: fixed;
+  z-index: 13;
+}
+
+@media screen and (max-width: 1600px) {
+  .container{
+    margin-left: 130px;
+  }
+
+}
+
+
+
+
+
+

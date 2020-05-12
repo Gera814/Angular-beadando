@@ -1,16 +1,22 @@
 <div class="appComponent">
-  <nav *ngIf="isLoggedIn()">
-    <div class="nav-wrapper" >
-      <a href="#!" class="brand-logo">Crypto Trader</a>
-      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
-        <li><a [routerLink]="['/list']">Coins</a></li>
-        <li><a [routerLink]="['/portfolio']">My portfolio</a></li>
 
-        <a class="waves-effect waves-light btn" *ngIf="isLoggedIn()" (click)="logOut()">Log Out</a>
+  <div class="wrapper" *ngIf="isLoggedIn()">
+    <div class="sidebar">
+      <div class="logoHolder">
+        <img class="logo" src="/assets/bitcoin-brands.svg" alt="">
+
+      </div>
+      <ul class="leftSideBar">
+        <div class="iconHolder">
+          <li (click)="goToList()"  class=""><fa-icon [style.color]="isList() ? 'white' : ' #F3F3F380'" class="faCoins" [icon]="faCoins"></fa-icon> <a [style.color]="isList() ? 'white' : ' #F3F3F380'">All Coins</a></li>
+          <li  (click)="goToPortfolio()"><fa-icon [style.color]="isPortfolio() ? 'white' : ' #F3F3F380'" class="faTacho" [icon]="faTachometerAlt"></fa-icon><a [style.color]="isPortfolio() ? 'white' : ' #F3F3F380'" >My portfolio</a></li>
+        </div>
+        <li (click)="logOut()">
+          <fa-icon  class="faSignOut" [icon]="faSignOutAlt"></fa-icon><a  *ngIf="isLoggedIn()" >Log Out</a>
+        </li>
       </ul>
     </div>
-  </nav>
+  </div>
 
   <!--
   <h2>{{message}}</h2>
@@ -19,7 +25,7 @@
   <app-employee-list></app-employee-list>
   <app-employee-details></app-employee-details>
 
-  <app-crypto-list></app-crypto-list>
+  <app-crypto-list></app-crypto-list>+
   -->
   <router-outlet></router-outlet>
 
