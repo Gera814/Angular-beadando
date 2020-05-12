@@ -4,6 +4,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {faArrowRight} from '@fortawesome/free-solid-svg-icons';
 import {faChartLine} from '@fortawesome/free-solid-svg-icons';
 import {faTimes} from '@fortawesome/free-solid-svg-icons';
+import {faUniversity} from '@fortawesome/free-solid-svg-icons';
+import {faCoins} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-buy',
@@ -27,7 +29,7 @@ import {faTimes} from '@fortawesome/free-solid-svg-icons';
             </div>
           </div>
           <div class="symbol">
-            <div class="cardLeftSide"><fa-icon  [icon]="faChartLine"></fa-icon></div>
+            <div class="cardLeftSide"><fa-icon  [icon]="faUniversity"></fa-icon></div>
             <div class="cardRightSide">
               <h3>{{actualCoin.rank}}.</h3>
               <p>Rank in the crypto market</p>
@@ -41,7 +43,7 @@ import {faTimes} from '@fortawesome/free-solid-svg-icons';
             </div>
           </div>
           <div class="rank">
-            <div class="cardLeftSide"><fa-icon  [icon]="faChartLine"></fa-icon></div>
+            <div class="cardLeftSide"><fa-icon  [icon]="faCoins"></fa-icon></div>
             <div class="cardRightSide">
               <h3>{{actualCoin.symbol}}</h3>
               <p>Symbol</p>
@@ -74,6 +76,8 @@ export class BuyComponent implements OnInit {
   faArrowRight = faArrowRight;
   faChartLine = faChartLine;
   faTimes = faTimes;
+  faUniversity = faUniversity;
+  faCoins = faCoins
   activePopup = false;
   constructor(private service: DataService, private router: Router, private route: ActivatedRoute) {
 

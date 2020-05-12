@@ -34,7 +34,7 @@ export class AppComponent {
   }
   logOut(){
     sessionStorage.setItem('login', 'false');
-    this.router.navigate(['login']);
+    this.router.navigate(['']);
   }
   goToList(){
     this.router.navigate(['list']);

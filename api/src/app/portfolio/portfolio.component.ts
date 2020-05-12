@@ -39,7 +39,7 @@ import {faArrowRight} from '@fortawesome/free-solid-svg-icons';
         </tr>
         </tbody>
       </table>
-      
+
     </div>
   `,
   styleUrls: ['./portfolio.component.css']
